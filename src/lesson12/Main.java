@@ -12,11 +12,10 @@ public class Main {
 //            }
 //        }
 //        matrix.fillMatrix(2.3);
-//        matrix1.printToConsole();
-//        System.out.println();
-//        matrix2.printToConsole();
-//
-//        System.out.println();
+        matrix1.printToConsole();
+        System.out.println();
+        matrix2.printToConsole();
+        System.out.println();
 //        matrix1.transpose().printToConsole();
         System.out.println(matrix1.determinant());
 //        matrix1.add(matrix2).printToConsole();
