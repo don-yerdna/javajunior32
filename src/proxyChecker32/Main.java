@@ -18,8 +18,8 @@ public class Main {
                 else if (i == 10) {
                     String ip = result.split(":")[0];
                     int port = Integer.parseInt(result.split(":")[1]);
-                    System.out.print("\033[H\033[J");
-                    System.out.println("проверка: "+result);
+                    System.out.print("\r");
+                    System.out.print("проверка: "+result);
                     if (checkProxy(ip, port)) {
                         String content = result+"\r\n";
                         byte[] contentInBytes = content.getBytes();
@@ -33,7 +33,7 @@ public class Main {
                         //fos.flush();
                         fos.close();
 
-                        System.out.println(result + " работает");
+                        System.out.println(" работает");
                     }
                     result = "";
                 } else if (i == 9) {
