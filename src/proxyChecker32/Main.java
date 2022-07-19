@@ -5,12 +5,12 @@ import java.net.*;
 
 public class Main {
     public static void main(String[] args) {
-        String pathFile = "C://java/working.txt";
+        String pathFile = "src/proxyChecker32/working.txt";
         File file = new File(pathFile);
         FileOutputStream fos;
         try {
 
-            FileInputStream fin = new FileInputStream("C://java/ip.txt");
+            FileInputStream fin = new FileInputStream("src/proxyChecker32/ip.txt");
             int i;
             String result = "";
             while ((i = fin.read()) != -1) {
