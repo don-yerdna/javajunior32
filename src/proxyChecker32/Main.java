@@ -5,7 +5,7 @@ import java.net.*;
 
 public class Main {
     public static void main(String[] args) {
-        String pathFile = "src/proxyChecker32/working.txt";
+        String pathFile = "src/proxyChecker32/working1.txt";
         File file = new File(pathFile);
         FileOutputStream fos;
         try {
