@@ -7,7 +7,9 @@ import java.net.URL;
 import java.net.URLConnection;
 
 
-public class Main {
+public class Main2 {
+
+
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         try {
@@ -19,12 +21,7 @@ public class Main {
                 else if (i == 10) {
                     String ip = result.split(":")[0];
                     int port = Integer.parseInt(result.split(":")[1]);
-                    Thread thread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            checkProxy(ip, port, start);
-                        }
-                    });
+                    CheckProxyThread thread = new CheckProxyThread(ip,port,start);
                     thread.start();
                     result = "";
                 } else if (i == 9) {
@@ -46,7 +43,7 @@ public class Main {
             URLConnection connection = url.openConnection(proxy);
             BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-            String pathFile = "src/proxyChecker32/work.txt";
+            String pathFile = "src/proxyChecker32/work_class.txt";
             File file = new File(pathFile);
             FileOutputStream fos;
             if (!file.exists()) {
@@ -70,5 +67,20 @@ public class Main {
         long timePassed = finish - start;
         String hasPassed = String.format("%02d:%02d:%02d", timePassed / 1000 / 3600, timePassed / 1000 / 60 % 60, timePassed / 1000 % 60);;
         return hasPassed;
+    }
+
+    static class CheckProxyThread extends Thread {
+        String ip;
+        int port;
+        long start;
+        public CheckProxyThread(String ip, int port, long start){
+            this.ip = ip;
+            this.port = port;
+            this.start = start;
+        }
+        @Override
+        public void run(){
+            checkProxy(ip, port, start);
+        }
     }
 }
